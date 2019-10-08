@@ -7,7 +7,12 @@ import (
 )
 
 func main() {
-	path := os.Args[1]
+	var path string
+	if len(os.Args) > 1 {
+		path = os.Args[1]
+	} else {
+		path = "."
+	}
 
 	_, err2 := os.Stat(path)
 	if os.IsNotExist(err2) {
